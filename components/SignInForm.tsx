@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Mail,
   Lock,
@@ -8,14 +8,14 @@ import {
   ArrowRight,
   PersonStanding,
 } from "lucide-react";
-import { useState } from "react";
 
-const signInForm = () => {
-  const [currentView, setCurrentView] = useState("signin"); // 'signin' or 'signup'
+// Fix 1: Component names must start with uppercase
+const SignInForm = () => {
+  const [currentView, setCurrentView] = useState<"signin" | "signup">("signin");
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [name, setName] = useState(""); // Used in signup
 
   const toggleView = () => {
     setCurrentView(currentView === "signin" ? "signup" : "signin");
@@ -25,29 +25,30 @@ const signInForm = () => {
     <>
       {currentView === "signup" ? (
         <>
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Name
-            </label>
-            <div className="relative">
-              <PersonStanding
-                size={18}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
-              />
-              <input
-                type="name"
-                id="name"
-                value={name}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full py-3 pl-10 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-colors"
-                placeholder="John Doe"
-              />
-            </div>
-          </div>
           <form className="mt-6 space-y-5">
+            <div>
+              <label
+                htmlFor="name"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                Name
+              </label>
+              <div className="relative">
+                <PersonStanding
+                  size={18}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                />
+                <input
+                  type="text"
+                  id="name"
+                  value={name}
+                  // Fix 2: setName should update name, not email
+                  onChange={(e) => setName(e.target.value)}
+                  className="w-full py-3 pl-10 pr-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-blue-600 outline-none transition-colors"
+                  placeholder="John Doe"
+                />
+              </div>
+            </div>
             <div>
               <label
                 htmlFor="email"
@@ -70,7 +71,6 @@ const signInForm = () => {
                 />
               </div>
             </div>
-
             <div>
               <label
                 htmlFor="password"
@@ -133,10 +133,12 @@ const signInForm = () => {
             </button>
           </form>
           <p className="mt-6 text-center text-gray-600">
-            Don't have an account?{" "}
+            {/* Fix 3: Escape the single quote */}
+            Don&#39;t have an account?{" "}
             <button
               onClick={toggleView}
               className="font-medium text-blue-600 hover:text-blue-800"
+              type="button"
             >
               Sign in
             </button>
@@ -167,7 +169,6 @@ const signInForm = () => {
                 />
               </div>
             </div>
-
             <div>
               <label
                 htmlFor="password"
@@ -230,10 +231,12 @@ const signInForm = () => {
             </button>
           </form>
           <p className="mt-6 text-center text-gray-600">
-            Don't have an account?{" "}
+            {/* Fix 4: Escape the single quote */}
+            Don&#39;t have an account?{" "}
             <button
               onClick={toggleView}
               className="font-medium text-blue-600 hover:text-blue-800"
+              type="button"
             >
               Sign up
             </button>
@@ -244,4 +247,4 @@ const signInForm = () => {
   );
 };
 
-export default signInForm;
+export default SignInForm;

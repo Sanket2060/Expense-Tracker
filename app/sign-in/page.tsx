@@ -1,5 +1,3 @@
-import { signIn } from "@/auth";
-import SignInForm from "@/components/SignInForm";
 import { Wallet, ChevronLeft, CheckCircle } from "lucide-react";
 import SignInBox from "@/components/SignInBox";
 import { redirect } from "next/navigation";
@@ -97,9 +95,9 @@ export default function SignIn() {
               {/* User Testimonial */}
               <div className="mt-12 bg-white bg-opacity-10 p-4 rounded-lg border border-white border-opacity-20">
                 <p className="italic text-sm text-blue-50">
-                  "This app saved our group vacation! We had 6 people sharing
-                  expenses across 5 days in different currencies. SplitTrip made
-                  it so easy to keep track of everything."
+                  &quot;This app saved our group vacation! We had 6 people
+                  sharing expenses across 5 days in different currencies.
+                  SplitTrip made it so easy to keep track of everything.&quot;
                 </p>
                 <div className="mt-3 flex items-center">
                   <div className="w-8 h-8 rounded-full bg-blue-200 flex items-center justify-center text-blue-700 font-medium text-sm">

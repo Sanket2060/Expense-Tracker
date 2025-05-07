@@ -253,9 +253,9 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="mt-4 text-gray-700">
-                  "SplitTrip saved our friendship! No more awkward conversations
-                  about who paid for what. We could all see the expenses in
-                  real-time."
+                  &quot;SplitTrip saved our friendship! No more awkward
+                  conversations about who paid for what. We could all see the
+                  expenses in real-time.&quot;
                 </p>
               </div>
 
@@ -270,9 +270,9 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="mt-4 text-gray-700">
-                  "The currency conversion feature was a lifesaver during our
-                  international trip. Everyone paid their fair share without the
-                  math headaches."
+                  &quot;The currency conversion feature was a lifesaver during
+                  our international trip. Everyone paid their fair share without
+                  the math headaches.&quot;
                 </p>
               </div>
             </div>
